@@ -1,0 +1,15 @@
+name: Node.js Package Publish
+
+jobs:
+  publish-gpr:
+    using: "composite"
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://npm.pkg.github.com/'
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -1,0 +1,17 @@
+name: Node CI/CD
+
+on:
+  workflow_call:
+    inputs:
+      context:
+        description: 'The GitHub context'
+        type: string
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: .github/actions/node-package-ci
+      - uses: .github/actions/node-package-cd
+        if: inputs.github.event_name == 'release'
