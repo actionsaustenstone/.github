@@ -9,7 +9,7 @@ on:
     types: [created]
 
 jobs:
-  build:
+  node:
     uses: actionsaustenstone/.github/.github/workflows/node-package.yml@main
     with:
       context: ${{ github }}
