@@ -1,0 +1,47 @@
+name: Sync Repositories
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-change-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v2
+        with:
+          name: change-artifact
+          path: .github/dependabot.yml
+  get-org-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: austenstone/get-org-repos@main
+        with:
+          github-token: ${{ secrets.TOKEN }}
+        id: get-org-repos
+    outputs:
+      repos: ${{ steps.get-org-repos.outputs.repos }}
+
+  sync:
+    needs: [create-change-artifact, get-org-repos]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ${{ fromJson(needs.get-org-repos.outputs.repos) }}
+      fail-fast: false
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.organization.login }}/${{ matrix.repo }}
+          token: ${{ secrets.TOKEN }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: change-artifact
+          path: .github
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ matrix.repo }}
+          create_branch: true
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
