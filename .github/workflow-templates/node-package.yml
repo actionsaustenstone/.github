@@ -1,5 +1,4 @@
 name: Node CI/CD
-description: "Runs Node.js CI and deploys to GitHub Packages on release"
 
 on:
   push:
