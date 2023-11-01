@@ -1,21 +1,20 @@
 name: Node.js Package Publish
-
+description: 'Publish Node.js package to Github Package Registry'
 inputs:
   token:
     description: 'A Github PAT'
     required: true
 
-jobs:
-  publish-gpr:
-    using: "composite"
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: 'https://npm.pkg.github.com/'
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{inputs.token}}
-        shell: bash
+runs:
+  using: "composite"
+  permissions:
+    contents: read
+    packages: write
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        registry-url: 'https://npm.pkg.github.com/'
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{inputs.token}}
+      shell: bash
