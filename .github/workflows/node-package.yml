@@ -12,7 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, world!"
-      # - uses: .github/actions/node-package-ci
-      # - uses: .github/actions/node-package-cd
-      #   if: inputs.github.event_name == 'release'
+      - uses: actionsaustenstone/.github/.github/actions/node-package-ci@main
+      - uses: actionsaustenstone/.github/.github/actions/node-package-cd@main
+        if: inputs.github.event_name == 'release'
