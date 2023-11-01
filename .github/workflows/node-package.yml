@@ -9,7 +9,7 @@ on:
         required: false
 
 jobs:
-  build:
+  cicd:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ fromJson(inputs.context).event_name }}"
