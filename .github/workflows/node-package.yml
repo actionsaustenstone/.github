@@ -12,7 +12,6 @@ jobs:
   cicd:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ fromJson(inputs.context).event_name }}"
       - uses: actionsaustenstone/.github/.github/actions/node-package-ci@main
       - uses: actionsaustenstone/.github/.github/actions/node-package-cd@main
         with:
