@@ -1,12 +1,4 @@
 {
     "name": "Node Package Workflow",
-    "description": "CI/CD for Node packages.",
-    "iconName": "accessibility",
-    "categories": [
-        "javascript"
-    ],
-    "filePatterns": [
-        "package.json$",
-        ".*\\.js$"
-    ]
+    "description": "CI/CD for Node packages."
 }
