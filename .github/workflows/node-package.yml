@@ -12,9 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github }}"
+      - run: echo "${{ inputs.context }}"
       - uses: actionsaustenstone/.github/.github/actions/node-package-ci@main
       - uses: actionsaustenstone/.github/.github/actions/node-package-cd@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        if: inputs.github.event_name == 'release'
+        if: inputs.context.event_name == 'release'
