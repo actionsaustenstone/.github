@@ -1,8 +1,8 @@
 name: Node.js Package Publish
-description: 'Publish Node.js package to Github Package Registry'
+description: "Publish Node.js package to Github Package Registry"
 inputs:
   token:
-    description: 'A Github PAT'
+    description: "A Github PAT"
     required: true
 
 runs:
@@ -10,8 +10,15 @@ runs:
   steps:
     - uses: actions/setup-node@v3
       with:
-        registry-url: 'https://npm.pkg.github.com/'
-    - run: npm publish
+        registry-url: "https://npm.pkg.github.com/"
+    - name: 😺 GitHub publish
+      continue-on-error: true
       env:
-        NODE_AUTH_TOKEN: ${{inputs.token}}
+        OWNER: ${{ github.repository_owner }}
+        NPM_TOKEN: ${{ inputs.token }}
+      run: |
+        echo "@${OWNER}:registry=https://npm.pkg.github.com" >> .npmrc
+        echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc
+        cat .npmrc
+        npm publish
       shell: bash
