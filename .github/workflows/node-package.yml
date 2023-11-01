@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       context:
-        description: 'The GitHub context'
+        description: "The GitHub context"
         type: string
         required: false
 
