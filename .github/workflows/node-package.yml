@@ -15,4 +15,6 @@ jobs:
       - run: echo "${{ github }}"
       - uses: actionsaustenstone/.github/.github/actions/node-package-ci@main
       - uses: actionsaustenstone/.github/.github/actions/node-package-cd@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
         if: inputs.github.event_name == 'release'
