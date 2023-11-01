@@ -1,17 +1,17 @@
 name: Node CI/CD
-description: 'Runs Node.js CI and deploys to GitHub Packages on release'
+description: "Runs Node.js CI and deploys to GitHub Packages on release"
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [$default-branch]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [$default-branch]
   release:
     types: [created]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    uses: .github/workflows/node-package.yml
+    uses: .github/.github/workflows/node-package.yml@main
     with:
       context: github
