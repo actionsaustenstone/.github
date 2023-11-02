@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: change-artifact
           path: .github/dependabot.yml
@@ -46,7 +46,7 @@ jobs:
         with:
           repository: ${{ github.event.organization.login }}/${{ matrix.repo }}
           token: ${{ steps.app-token.outputs.token }}
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: change-artifact
           path: .github
