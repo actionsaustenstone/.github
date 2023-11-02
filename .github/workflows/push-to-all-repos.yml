@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: ${{ github.event.inputs.files }}
+          sparse-checkout: ${{ inputs.files }}
       - uses: actions/upload-artifact@v3
         with:
           name: change-artifact
