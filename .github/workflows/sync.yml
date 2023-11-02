@@ -13,3 +13,6 @@ jobs:
     with:
       files: |
         .github/dependabot.yml
+    secrets:
+      APP_ID: ${{ vars.APP_ID }}
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

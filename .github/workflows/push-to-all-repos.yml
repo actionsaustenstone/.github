@@ -1,8 +1,15 @@
-name: Sync Repositories
+name: Create PR for All Repos
 
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      APP_ID:
+        required: true
+        description: 'Files to sync'
+      PRIVATE_KEY:
+        required: true
+        description: 'Files to sync'
     inputs:
       files:
         description: 'Files to sync'
