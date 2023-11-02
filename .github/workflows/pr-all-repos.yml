@@ -60,7 +60,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: change-artifact
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@dev
         with:
           branch: auto-update-bot/${{ github.sha }}
           create_branch: true
