@@ -5,7 +5,7 @@ on:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' || github.actor == 'austen-update-bot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
