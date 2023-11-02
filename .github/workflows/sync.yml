@@ -15,4 +15,5 @@ jobs:
     with:
       files: |
         .github/dependabot.yml
-    secrets: inherit
+    secrets:
+      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
