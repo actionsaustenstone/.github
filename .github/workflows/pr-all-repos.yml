@@ -22,7 +22,9 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: change-artifact
-          path: .
+          path: |
+            .
+            !.git
   get-org-repos:
     runs-on: ubuntu-latest
     steps:
@@ -60,7 +62,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: change-artifact
-          path: ./
       - uses: stefanzweifel/git-auto-commit-action@v5
         id: git-auto-commit-action
         with:
