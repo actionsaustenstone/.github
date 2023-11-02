@@ -2,16 +2,24 @@ name: Sync Repositories
 
 on:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      files:
+        description: 'Files to sync'
+        type: string
+        required: true
 
 jobs:
   create-change-artifact:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ github.event.inputs.files }}
       - uses: actions/upload-artifact@v3
         with:
           name: change-artifact
-          path: .github/dependabot.yml
+          path: .
   get-org-repos:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +60,7 @@ jobs:
           path: .github
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: ${{ matrix.repo }}
+          branch: auto-update-bot/${{ github.sha }}
           create_branch: true
           push_options: --force
       - run: gh pr create --fill
