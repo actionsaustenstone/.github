@@ -54,7 +54,7 @@ jobs:
         with:
           branch: ${{ matrix.repo }}
           create_branch: true
-          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          push_options: --force
       - run: gh pr create --fill
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
