@@ -3,6 +3,9 @@ name: Deploy static content to Pages
 
 on:
   workflow_call:
+    secrets:
+      private-key:
+        required: true
     inputs:
       path:
         description: 'Path to static content'
