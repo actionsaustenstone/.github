@@ -2,5 +2,6 @@
     "name": "Kudos for Code",
     "description": "Find contributors and Ink Kudos",
     "iconName": "octicon people",
-    "categories": ["node"]
+    "categories": ["node"],
+    "filePatterns": ["package.json$"]
 }
