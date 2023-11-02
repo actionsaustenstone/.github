@@ -1,3 +1,5 @@
+<img align="left" height="200" src="https://octodex.github.com/images/welcometocat.png">
+
 In the realm of code's ballet, GitHub Actions play,
 A symphony of automation, night and day.
 CI/CD's seamless choreography unfurls,
