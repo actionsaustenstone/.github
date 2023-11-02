@@ -9,6 +9,13 @@ on:
         type: string
         required: false
         default: '.'
+    secrets:
+      APP_ID:
+        description: 'GitHub App ID'
+        required: true
+      PRIVATE_KEY:
+        description: 'GitHub App Private Key'
+        required: true
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
