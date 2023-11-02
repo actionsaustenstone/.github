@@ -2,6 +2,6 @@
     "name": "Node Package",
     "description": "Build, test, and publish a Node.js package",
     "iconName": "octicon people",
-    "categories": ["node"],
+    "categories": ["Javascript", "Node"],
     "filePatterns": ["package.json$"]
 }
