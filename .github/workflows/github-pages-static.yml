@@ -10,9 +10,6 @@ on:
         required: false
         default: '.'
     secrets:
-      APP_ID:
-        description: 'GitHub App ID'
-        required: true
       PRIVATE_KEY:
         description: 'GitHub App Private Key'
         required: true
