@@ -32,8 +32,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          owner: ${{ github.event.organization.login }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        with:
+          enablement: true
+          token: ${{ steps.app-token.outputs.token }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
