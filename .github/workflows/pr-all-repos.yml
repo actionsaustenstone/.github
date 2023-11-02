@@ -62,10 +62,12 @@ jobs:
           name: change-artifact
           path: .github
       - uses: stefanzweifel/git-auto-commit-action@v5
+        id: git-auto-commit-action
         with:
           branch: auto-update-bot/${{ github.sha }}
           create_branch: true
           push_options: --force
       - run: gh pr create --fill
+        if: steps.git-auto-commit-action.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
