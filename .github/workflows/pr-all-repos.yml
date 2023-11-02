@@ -3,9 +3,6 @@ name: Create PR for All Repos
 on:
   workflow_call:
     secrets:
-      APP_ID:
-        required: true
-        description: 'Applications ID'
       PRIVATE_KEY:
         required: true
         description: 'Applications Private Key'
