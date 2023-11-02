@@ -60,7 +60,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: change-artifact
-          path: .github
       - uses: stefanzweifel/git-auto-commit-action@v5
         id: git-auto-commit-action
         with:
