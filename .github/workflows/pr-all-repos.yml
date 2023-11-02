@@ -53,7 +53,7 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.event.organization.login }}
           repositories: ${{ matrix.repo }}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: ${{ github.event.organization.login }}/${{ matrix.repo }}
           token: ${{ steps.app-token.outputs.token }}
