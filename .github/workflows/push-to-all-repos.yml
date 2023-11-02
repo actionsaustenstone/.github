@@ -6,10 +6,10 @@ on:
     secrets:
       APP_ID:
         required: true
-        description: 'Files to sync'
+        description: 'Applications ID'
       PRIVATE_KEY:
         required: true
-        description: 'Files to sync'
+        description: 'Applications Private Key'
     inputs:
       files:
         description: 'Files to sync'
