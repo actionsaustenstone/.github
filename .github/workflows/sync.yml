@@ -11,10 +11,8 @@ on:
 
 jobs:
   sync:
-    uses: actionsaustenstone/.github/.github/workflows/push-to-all-repos.yml@main
+    uses: actionsaustenstone/.github/.github/workflows/pr-all-repos.yml@main
     with:
       files: |
         .github/dependabot.yml
-    secrets:
-      APP_ID: ${{ vars.APP_ID }}
-      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    secrets: inherit
