@@ -64,7 +64,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: change-artifact
-          path: .github
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: auto-update-bot/${{ github.sha }}
