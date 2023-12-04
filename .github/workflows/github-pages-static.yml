@@ -43,7 +43,7 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           owner: ${{ github.event.organization.login }}
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
         with:
           enablement: true
           token: ${{ steps.app-token.outputs.token }}
